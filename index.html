@@ -56,9 +56,9 @@
                                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="background-color: white;">
                                     <ul class="nav navbar-nav navbar-right">
                                         <li><a href="aboutus.html">about me</a></li>
-                                        <li><a href="service.html">service</a></li>
+                                        <li><a href="#single_service">service</a></li>
                                         <li><a href="work1.html">work</a></li>
-                                        <li><a href="blog.html">Skills</a></li>
+                                        <li><a href="#skills_heading">Skills</a></li>
                                         <li><a href="contact.html">contact</a></li>
                                     </ul>
                                 </div>
@@ -146,7 +146,7 @@
                                     </div>
                                 </div>
                                 <div class="col-sm-5 col-sm-push-1">
-                                    <div class="single_service">
+                                    <div class="single_service" id = "single_service">
                                         <h3>Website</h3>
                                         <h2>Developing</h2>
                                         <div class="separator2"></div>
@@ -159,7 +159,6 @@
                                             professions and field and tastes.
                                             I really hope it will be not hard for me to make one for you.</p>
 
-                                        
                                     </div>
                                 </div>
                             </div>
@@ -188,7 +187,6 @@
                                             Then promise me you will contact me. wouldn't you?
                                         </p>
 
-                                        
                                     </div>
                                 </div>
 
@@ -215,7 +213,6 @@
                                             My team had provided and updated content of client websites which ended up
                                             incrementing in their sales, Orders and Revenue.</p>
 
-                                        
                                     </div>
                                 </div>
                             </div>
@@ -223,8 +220,50 @@
                     </div>
                 </div>
             </div
-        </div><
+        </div>
     </section>
+    <section id="blog" class="blog sections margin-top-120">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="head_title text-center">
+                        <h1 id="skills_heading"><small>
+                            <!-- <strong> -->
+                               < Skills and Experience >
+                            <!-- </strong> -->
+                        </small> </h1>
+                        <h3><small>Select skills from below and see the magic in the graph</small></h3>
+                    </div><!-- End of head title -->
+                    <div class="dropdown_">
+
+                        <div class="select">
+                            <select>
+                                <option value="1">SKILLS</option>
+                                <option value="2">HTML</option>
+                                <option value="3">CSS</option>
+                                <option value="4">JAVASCRIPT</option>
+                                <option value="5">C++</option>
+                                <option value="6">C</option>
+                                <option value="7">FULL_STACK</option>
+                                <option value="8">MS_OFFICE</option>
+                                <option value="9">ENGLISH</option>
+                                <option value="10">MySql</option>
+                                <option value="11">NODE.JS</option>
+                                <option value="12">PYTHON</option>
+                                <option value="13">FRONT_END</option>
+                                <option value="14">BACK_END</option>
+                                <option value="15">REACT.JS</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="skillsngraphs">
+                        <canvas id="myChart" height="2000em"></canvas>
+                    </div>
+                </div><!-- End of col-sm-12 -->
+            </div><!-- End of row -->
+        </div><!-- End of Container -->
+    </section><!-- End of Service Section -->
+
     <section id="team" class="team colorsbg sections">
         <div class="container">
             <div class="row">
@@ -482,6 +521,8 @@
     <script type="text/javascript">
         $('.mixcontent').masonry();
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script src="assets/js/main.js"></script>
 
     <script src="assets/js/jquery.sliderPro.min.js"></script>
     <script type="text/javascript">
@@ -506,6 +547,50 @@
     </script>
     <script src="assets/js/plugins.js"></script>
     <script src="assets/js/main.js"></script>
+    <script>
+        let yyValues = [50, 50, 50, 50, 50, 50];
+    let colors = "#00b894";
+    let labeling = "Nothing";
+    MakingGraphs(yyValues, colors);
+  
+
+  
+  function MakingGraphs(yyValues, color, labeling) {
+    let ctx = document.getElementById("myChart").getContext("2d");
+  
+    let gradient = ctx.createLinearGradient(0, 0, 0, 400);
+    gradient.addColorStop(0, addAlpha(color, 0.5));
+    gradient.addColorStop(1, addAlpha(color, 0.2));
+  
+    var xValues = [2017, 2018, 2019, 2020, 2021, 2022];
+    var yValues = yyValues;
+  
+    var coloring = color;
+    new Chart("myChart", {
+      type: "line",
+      data: {
+        labels: xValues,
+        datasets: [
+          {
+            label: labeling,
+            fill: true,
+            lineTension: 0,
+            backgroundColor: gradient,
+            borderColor: coloring,
+            data: yValues,
+          },
+        ],
+      },
+      options: {
+        legend: { display: true },
+        scales: {
+          yAxes: [{ ticks: { min: 0, max: 100,stepSize:20 } }],
+        },
+      },
+    });
+  }
+  
+    </script>
     <script>
     //     $(document).ready(function() {
     //      $('body').bind('cut copy', function(e) {
