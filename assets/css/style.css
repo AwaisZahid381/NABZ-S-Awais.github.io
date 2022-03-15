@@ -2,6 +2,9 @@
 :root {
   --gray: #34495e;
 }
+html {
+  scroll-behavior: smooth;
+}
 a:hover {
   text-decoration: none;
 }
