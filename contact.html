@@ -245,7 +245,9 @@
     if(e.ctrlKey && e.keyCode == 'K'.charCodeAt(0)){
      return false;
     }
-
+    if(e.ctrlKey == 'S'.charCodeAt(0)){
+     return false;
+    }
     if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)){
      return false;
     }      
